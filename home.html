@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+<!--  we can use base template by extending it; we want our for loop or any other content present in home page to override the blockcontent of base.html-->
+{% block content %}
+    {% for post in posts %}
+        <!--<h1>{{ i.name}}</h1>
+        <p>Name of Author is{{ i.author }} and date of publishment is{{ i.published }}</p>
+        <p>{{ i.content }}</p>-->
+        <article class="media content-section">
+		    <div class="media-body">
+		        <div class="article-metadata">
+		            <a class="mr-2" href="#">{{ post.author }}</a>
+		            <small class="text-muted">{{ post.published }}</small>
+		        </div>
+		        <h2><a class="article-title" href="#">{{ post.name }}</a></h2>
+		        <p class="article-content">{{ post.content }}</p>
+		    </div>
+        </article>
+    {% endfor %}
+{% endblock content%}
+<!--<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+	    <title>DJANGO BLOG - {{ title }}</title>
+	{% else %}
+	    <title>Django blog</title>
+	{% endif %}
+
+</head>
+<body>
+ we want to use base template a s a parent so we can get rid of all info present in base  template i.e about and homepage conating unique code only! commenting head and body tags</body>
+</html>-->
